@@ -1,0 +1,7 @@
+spring.application.name=micro-carritof
+server.port=8094
+
+#Configurando a Ribbon
+micro-producto.ribbon.listOfServers=localhost:8092, localhost:8095
+
+eureka.client.service-url.defaultZone=http://localhost:8099/eureka

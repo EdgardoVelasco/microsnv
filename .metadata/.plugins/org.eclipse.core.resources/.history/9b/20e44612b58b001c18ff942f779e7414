@@ -1,0 +1,18 @@
+spring.application.name=micro-gateway
+server.port=8098
+
+eureka.client.service-url.defaultZone=http://localhost:8099/eureka
+
+#configurando rutas en Cloud Gateway
+
+#Ruta1
+spring.cloud.gateway.routes[0].id=micro-producto
+spring.cloud.gateway.routes[0].uri=lb://micro-producto
+spring.cloud.gateway.routes[0].predicates=Path=/api/productos/**
+spring.cloud.gateway.routes[0].filters=StripPrefix=2
+
+#Ruta2
+spring.cloud.gateway.routes[1].id=micro-carritof
+spring.cloud.gateway.routes[1].uri=lb://micro-carritof
+spring.cloud.gateway.routes[1].predicates=Path=/api/carrito/**
+spring.cloud.gateway.routes[1].filters=StripPrefix=2
